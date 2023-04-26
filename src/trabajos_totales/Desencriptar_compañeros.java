@@ -205,29 +205,27 @@ public class Desencriptar_compañeros {
 		//SAMUEL CAMARGO 
 				System.out.println("Ingrese la palabra");
 				String palabraE = teclado.nextLine();
-				String encriptarPalabra = ""; //se inicializa una variable para contener el resultado       
-				String[] abecedario = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}; // se inicializa un vector para contener las letras del abecedario
-				String[] deletreo = new String [palabraE.length()]; // se inicializa un vector para almacenar la palabra a encriptar
-				for(int i=0; i<palabraE.length();i++){   // para i = 0 mientras i sea menor que el largo de la palabra i aumenta en 1            
-					deletreo[i] = palabraE.substring(i, 1+i); // se toma la palagra ingresada y se separa letra por letra                       
+				String encriptarPalabra = ""; //Variable para la palabra desencriptada       
+				String[] abecedario = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}; //Vector ABC
+				String[] deletreo = new String [palabraE.length()]; //Vector para almacenar la palabra por letras
+				for(int i=0; i<palabraE.length();i++){ //Ciclo para recorrer el vector de la palabra           
+					deletreo[i] = palabraE.substring(i, 1+i); // Asignar cada letra a una posicion del vector                       
 				}
-				for(int j=0;j<deletreo.length;j++){  // para j = 0 mientras j sea menor que el largo del deletreo de la palabra aumentar j en 1
-					String deletras = deletreo[j]; // se inicializa una variable que almacene el vector de deletreo                        
-					for(int i=0; i<26;i++){ // para i = o mientras i sea menor que 26 aumentar i en 1                
-						String letras = abecedario[i];  // se inicializa una variable que almacene las letras del abecedario
-						int condicion = i + palabraE.length()*2;  /*se inicializa una variable que almacena las condiciones de encriptacion 
-		                                                    que es restar el numero de espacios del largo de la palabra y se multiplica ese valor en 2 */ 
-						if(condicion > abecedario.length-1){  // se crea una condicion para evitar que la encriptacion se desborde del abecedario
-							condicion=condicion-abecedario.length;
+				for(int j=0;j<deletreo.length;j++){  //Ciclo para recorrer cada posicion del vector de la palabra
+					String deletras = deletreo[j]; //Variable para comparar la letra en el vector con la del ABC                        
+					for(int i=0; i<26;i++){ //Ciclo para recorrer el ABC                
+						String letras = abecedario[i];  //Variable para comparar las letras del ABC con las del vector palabra
+						int condicion = i + palabraE.length()*2;  //Variable para saber cuanto corre la letra en el vector  
+						if(condicion > abecedario.length-1 ){  //En caso de que salga de los limites del vector
+							condicion=condicion-abecedario.length; //Restar el largo del vector
 						}
-						if (deletras.contains(letras) == true ){ // se crea la condicion para encriptar la palabra                        
-							encriptarPalabra = encriptarPalabra +  abecedario[condicion];                
+						if (deletras.contains(letras) == true) {                        /*Si la letra en el vector palabra coincide
+						                                                                con la letra en el vector ABC se aplica la condicion
+						                                                                para esa posicion*/                        
+							encriptarPalabra = encriptarPalabra +  abecedario[condicion];  //Se agrega a la letra en la posicision de la condicion          
 						}
 					}
 				}
-				System.out.println(encriptarPalabra);   
-			  
-
+				System.out.println(encriptarPalabra); //Mostrar la palabra formada				
 	}
 }
-	 
