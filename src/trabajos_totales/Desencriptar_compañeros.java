@@ -222,7 +222,7 @@ public class Desencriptar_compañeros {
 						if (deletras.contains(letras) == true) {                        /*Si la letra en el vector palabra coincide
 						                                                                con la letra en el vector ABC se aplica la condicion
 						                                                                para esa posicion*/                        
-							encriptarPalabra = encriptarPalabra +  abecedario[condicion];  //Se agrega a la letra en la posicision de la condicion          
+							encriptarPalabra = encriptarPalabra +  abecedario[condicion];  //Se agrega a la letra en la posicion de la condicion          
 						}
 					}
 				}
