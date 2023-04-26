@@ -226,6 +226,32 @@ public class Desencriptar_compañeros {
 						}
 					}
 				}
-				System.out.println(encriptarPalabra); //Mostrar la palabra formada				
+				System.out.println(encriptarPalabra); //Mostrar la palabra formada	
+	//SERGIO CALDERON
+				String[] vectorS={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"," "};			
+				String resultado="";
+				for(int i=0;i<palabra.length();i++){//ciclo desde la primera letra hasta la ultima
+					for(int x=0;x<28;x++){//ciclo de a hasta z
+						if(vectorS[x].equals(palabra.substring(i,i+1))){//comprueba si la letra es igual a la posicion en el vector
+							int y=x;
+							for(int z=16;z>=1;z=z/2){//comprueba la cuatro potencias para cada letra
+								System.out.println(y+" y actual");
+								if(y/z>=1){//este ciclo prueba con las potencias de 2 y si es mayor que alguna de esta agrega un asterisco
+									resultado+="*";							
+								}else{
+									resultado+=" ";//si no es divisible entonces me suma un espacio que es la opcion apagado
+								}
+								if(y/z>=1){//en este ciclo tambien prueba las potencias de 2 
+									y=y%z;//con esto al agregar un * le saca el modulo del valor de esa potencia
+									System.out.println(y);
+								}
+
+							}
+							resultado+="/";//separa cada letra 
+							x=27;//acaba con el ciclo
+						}
+					}
+				}
+				System.out.println(resultado);//muestra la palabra codificada
 	}
 }
