@@ -238,7 +238,7 @@ public class Desencriptar_compañeros {
 				for (int letras = 0; letras < largoTotal; letras = letras+6 ) {//Ciclo para extraer cada letra
 					int letrasHasta = letras+6;/*Variable de apoyo para tomar solo 
 					                             los caracteres que corresponden a cada letra*/
-					int posiciones = 0; //Variable para agregar la letra en cierta posicion del vector
+					int posiciones = 0; //Variable que me ayuda a agregar las letras de cierta posicion en el vector abc
 					String letra = palabraF.substring(letras, letrasHasta); //Variable para tomar los caracteres por letra
 					for (int i = 0; i < 5; i++ ) {	//Ciclo para desencriptar los caracteres de cada letra					
     					String caracter = letra.substring(i,i+1); // Extraer cada 1 de los 5 caracteres de la letra 			
