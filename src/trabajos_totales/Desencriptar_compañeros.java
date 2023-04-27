@@ -228,43 +228,43 @@ public class Desencriptar_compañeros {
 				}
 				System.out.println(encriptarPalabra); //Mostrar la palabra formada	
 				//SERGIO CALDERON
-				System.out.println("Ingresa la palabra");
-				String palabraF = teclado.nextLine();
+				System.out.println("Ingresa la palabra");//Pedir la palabra 
+				String palabraF = teclado.nextLine(); //Variable para la palabra
+				//Vector del ABC
 				String[] vectorS={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"," "};			
-				String resultado="";
-				String total = "";
-				String encendido = "*";								
-				int largoTotal = palabraF.length();  
-				for (int letras = 0; letras < largoTotal; letras = letras+6 ) {
-					int letrasHasta = letras+6;
-					int posiciones = 0;
-					String letra = palabraF.substring(letras, letrasHasta);
-					for (int i = 0; i < 5; i++ ) {						
-    					String caracter = letra.substring(i,i+1);					
-    					if(caracter.equals(encendido)) {    						
-    						if (i==0) {
-    							posiciones = posiciones+16;
-    							System.out.println(posiciones);    							
-    						}else {
-    							if(i==1) {
+				String resultado=""; //Variable donde se agrega la palabra desencriptada				
+				String encendido = "*"; //Variable para realizar la comparacion de los caracteres				 
+				int largoTotal = palabraF.length(); //Variable para limitar el ciclo a los caracteres de la palabra
+				for (int letras = 0; letras < largoTotal; letras = letras+6 ) {//Ciclo para extraer cada letra
+					int letrasHasta = letras+6;/*Variable de apoyo para tomar solo 
+					                             los caracteres que corresponden a cada letra*/
+					int posiciones = 0; //Variable para agregar la letra en cierta posicion del vector
+					String letra = palabraF.substring(letras, letrasHasta); //Variable para tomar los caracteres por letra
+					for (int i = 0; i < 5; i++ ) {	//Ciclo para desencriptar los caracteres de cada letra					
+    					String caracter = letra.substring(i,i+1); // Extraer cada 1 de los 5 caracteres de la letra 			
+    					if(caracter.equals(encendido)) { // Si el caracter que se extrajo es "*"   						
+    						if (i==0) { // Evalua la posicion en la que esta 
+    							posiciones = posiciones+16; //En caso de ser 0 suma 16  							    							
+    						}else { 
+    							if(i==1) { // En caso de ser 1 suma 8
     								posiciones = posiciones+8;    								
     							}else {
-    								if(i==2) {
+    								if(i==2) { //En caso de ser 2 suma 4
     									posiciones = posiciones+4;    	    							
     								}else {
-    									if(i==3) {
+    									if(i==3) { //En caso de ser 3 suma2
     										posiciones = posiciones+2;    		    							
-    									}else {
+    									}else { // En caso de ser 4 suma 1
     										posiciones = posiciones+1;    										
     									}    						
     								}
     							}
     						}
     					}
-					}
-					resultado =  resultado + vectorS[posiciones];   				
-				}
-				//Cierra ciclo interno
+					}//CIERRA ciclo interno
+					resultado =  resultado + vectorS[posiciones];// Va agregando la letra correspondiente al resultado   				
+				}//CIERRA ciclo externo
+				
 				System.out.println(resultado);//muestra la palabra codificada                					
 	}
 }

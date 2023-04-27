@@ -241,7 +241,7 @@ public class Encriptar_compañeros {
 		}
 		return encriptarPalabra;   
 	}
-	 public static String Sergio(String palabra){         
+	 public static String Sergio(String palabra){  //SERGIO CALDERON        
          String[] vector={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"," "};             
              String resultado="";
               for(int i=0;i<palabra.length();i++){//ciclo desde la primera letra hasta la ultima
