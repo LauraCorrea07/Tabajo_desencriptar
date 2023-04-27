@@ -35,7 +35,7 @@ public class Desencriptar_compañeros {
 				vector[12]="l";
 				vector[13]="m";
 				vector[14]="n";
-				vector[15]="o";
+ 				vector[15]="o";
 				vector[16]="p";
 				vector[17]="q";
 				vector[18]="r";
@@ -232,41 +232,39 @@ public class Desencriptar_compañeros {
 				String palabraF = teclado.nextLine();
 				String[] vectorS={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"," "};			
 				String resultado="";
-				String encendido = "*";				
-				int posiciones = 0;
-				int largoTotal = palabraF.length();                                
-                	for (int i = 0; i < 5; i++ ) {
-    					String caracter = palabraF.substring(i,i+1);					
-    					if(caracter.equals(encendido)) {
-    						System.out.println("entro " + posiciones);
+				String total = "";
+				String encendido = "*";								
+				int largoTotal = palabraF.length();  
+				for (int letras = 0; letras < largoTotal; letras = letras+6 ) {
+					int letrasHasta = letras+6;
+					int posiciones = 0;
+					String letra = palabraF.substring(letras, letrasHasta);
+					for (int i = 0; i < 5; i++ ) {						
+    					String caracter = letra.substring(i,i+1);					
+    					if(caracter.equals(encendido)) {    						
     						if (i==0) {
     							posiciones = posiciones+16;
-    							System.out.println(posiciones);
-    							
+    							System.out.println(posiciones);    							
     						}else {
     							if(i==1) {
-    								posiciones = posiciones+8;
-    								
+    								posiciones = posiciones+8;    								
     							}else {
     								if(i==2) {
-    									posiciones = posiciones+4;
-    	    							
+    									posiciones = posiciones+4;    	    							
     								}else {
     									if(i==3) {
-    										posiciones = posiciones+2;
-    		    							
+    										posiciones = posiciones+2;    		    							
     									}else {
-    										posiciones = posiciones+1;
-    										
-    									}
+    										posiciones = posiciones+1;    										
+    									}    						
     								}
     							}
     						}
     					}
-    					resultado =  vectorS[posiciones];    					
-    				} //Cierra ciclo interno
-                	System.out.println(resultado);//muestra la palabra codificada
-                //Cierra ciclo externo
-				
+					}
+					resultado =  resultado + vectorS[posiciones];   				
+				}
+				//Cierra ciclo interno
+				System.out.println(resultado);//muestra la palabra codificada                					
 	}
 }
